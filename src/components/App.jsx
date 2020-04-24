@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import NavBar from "./NavBar";
 import Movie from "./Movie";
+import Footer from "./Footer";
 import axios from "axios";
 import './App.css';
 
@@ -9,7 +11,9 @@ class App extends React.Component {
     this.state = {
       isLoading: true,
       movies: [],
-      showTimes: ['3PM', '8PM']
+      showTimes: ['3PM', '8PM'],
+      formVisible: false,
+      detailVisible: false
     }
   }
 
@@ -19,7 +23,7 @@ class App extends React.Component {
         data: { movies }
       }
     } = await axios.get(
-      "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
+      "https://yts-proxy.now.sh/list_movies.json?limit=6&sort_by=rating"
     );
     this.setState({ movies, isLoading: false });
     console.log(this.setState)
@@ -28,10 +32,11 @@ class App extends React.Component {
     this.getMovies();
   }
   render() {
-    console.log(this.state);
     const { isLoading, movies } = this.state;
     console.log(this.state);
     return (
+      <>
+      <div><NavBar /></div>
       <section className="container">
         {isLoading ? (
           <div className="loader">
@@ -53,6 +58,8 @@ class App extends React.Component {
           </div>
         )}
       </section>
+      <div><Footer /></div>
+      </>
     );
   }
 }
