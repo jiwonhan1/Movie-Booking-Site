@@ -1,25 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends React.component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      masterMovieList = [],
+      showTimes: ['3PM', '8PM']
+    };
+
+    getMovies = async () => {
+      const {
+        data: {
+          masterMovieList
+        }
+      } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+      this.setState({masterMovieList, isLoading: false});
+    };
+
+    componentDidMount() {
+      this.getMovies();
+    };
+
+    render() {}
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
   );
 }
 
