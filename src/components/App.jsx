@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import Movie from "/Movie";
+import Movie from "./Movie";
 import axios from "axios";
-import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
@@ -28,6 +27,7 @@ class App extends React.Component {
     this.getMovies();
   }
   render() {
+    console.log(this.state);
     const { isLoading, masterMovieList } = this.state;
     return (
       <section className="container">
