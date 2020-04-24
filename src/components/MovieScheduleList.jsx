@@ -1,10 +1,11 @@
 import React from 'react';
 import Movie from './Movie';
+import PropTypes from "prop-types";
 
-const MovieScheduleList = (props) => {
+function MovieScheduleList(props) {
     return (
         <>
-          {props.MovieScheduleList.map((movie) =>
+          {props.movieScheduleList.map((movie) =>
           <Movie
                 key={movie.id}
                 id={movie.id}
@@ -15,10 +16,14 @@ const MovieScheduleList = (props) => {
                 genres={movie.genres}
                 ticket={movie.ticket}
                 showTime={movie.showTime}
+                message={movie.message}
           />
           )}
         </>
     );
 };
 
+MovieScheduleList.propTypes = {
+  movieScheduleList: PropTypes.array
+}
 export default MovieScheduleList;

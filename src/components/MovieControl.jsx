@@ -7,8 +7,9 @@ import { v4 } from 'uuid';
 class MovieControl extends React.Component {
   constructor(props) {
     super(props);
+    this.props = props;
+    movies = props.movies      
     this.state = {
-      movies = [],
       formVisible: false,
       detailVisible: false,
       selectedMovie : null,

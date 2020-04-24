@@ -11,8 +11,9 @@ function Movie(props) {
     <p>title : {props.title}</p>
     <p>summary : {props.summary}</p>
     <p>genres : {props.genres}</p>
-    <p>Ticket : {props.ticket}</p>
+    <p>Ticket Quantities: {props.ticket}</p>
     <p>Show Time : {props.showTime[0]} and {props.showTime[1]}</p>
+    <p>Current Ticket Status : {props.message}</p>
     </>
   )
 }

@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {v4} from 'uuid';
+import MovieControl from './MovieControl';
+import { Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import MovieScheduleList from "./Movie";  
 import Footer from "./Footer";
@@ -33,31 +36,19 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <>
-      <div><NavBar /></div>
+      <Switch>
+      {/* <div><NavBar /></div> */}
       <section className="container">
         {isLoading ? (
           <div className="loader">
             <span className="loader__text">Loading...</span>
           </div>
         ) : (
-          <div>
-            {movies.map(movie => (
-              <MovieScheduleList
-                key={movie.id}
-                id={v4()}
-                year={movie.year}
-                title={movie.title}
-                summary={movie.summary}
-                poster={movie.medium_cover_image}
-                genres={movie.genres}
-                ticket = {10}
-                showTime = {["3PM", "8PM"]}
-              />
-            ))}
-          </div>
+        <Route exact path='/employee' render={(props) => <MovieControl { ...props} movies ={this.state.movies}  />}/>
         )}
       </section>
-      <div><Footer /></div>
+      {/* <div><Footer /></div> */}
+      </Switch>
       </>
     );
   }
