@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import NavBar from "./components/NavBar";
-import Movie from "./components/Movie";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
+import NavBar from "./NavBar";
+import MovieScheduleList from "./Movie";
+import Body from "./Body";
+import Footer from "./Footer";
 import axios from "axios";
 import './App.css';
 
@@ -14,7 +14,8 @@ class App extends React.Component {
       movies: [],
       showTimes: ['3PM', '8PM'],
       formVisible: false,
-      detailVisible: false
+      detailVisible: false,
+      currentTime: new Date().getHours()
     }
   }
 
@@ -46,7 +47,7 @@ class App extends React.Component {
         ) : (
           <div className="movies">
             {movies.map(movie => (
-              <Movie
+              <MovieScheduleList
                 key={movie.id}
                 id={movie.id}
                 year={movie.year}
