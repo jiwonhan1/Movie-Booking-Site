@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      masterMovieList: [],
+      movies: [],
       showTimes: ['3PM', '8PM']
     }
   }
@@ -16,19 +16,21 @@ class App extends React.Component {
   getMovies = async () => {
     const {
       data: {
-        data: { masterMovieList }
+        data: { movies }
       }
     } = await axios.get(
       "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
     );
-    this.setState({ masterMovieList, isLoading: false });
+    this.setState({ movies, isLoading: false });
+    console.log(this.setState)
   };
   componentDidMount() {
     this.getMovies();
   }
   render() {
     console.log(this.state);
-    const { isLoading, masterMovieList } = this.state;
+    const { isLoading, movies } = this.state;
+    console.log(this.state);
     return (
       <section className="container">
         {isLoading ? (
@@ -37,7 +39,7 @@ class App extends React.Component {
           </div>
         ) : (
           <div className="movies">
-            {masterMovieList.map(movie => (
+            {movies.map(movie => (
               <Movie
                 key={movie.id}
                 id={movie.id}
