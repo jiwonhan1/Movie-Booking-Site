@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import NavBar from "./NavBar";
-import MovieScheduleList from "./Movie";
-import Body from "./Body";
+import MovieScheduleList from "./Movie";  
 import Footer from "./Footer";
 import axios from "axios";
 import './App.css';
@@ -12,10 +11,6 @@ class App extends React.Component {
     this.state = {
       isLoading: true,
       movies: [],
-      showTimes: ['3PM', '8PM'],
-      formVisible: false,
-      detailVisible: false,
-      currentTime: new Date().getHours()
     }
   }
 
@@ -45,16 +40,18 @@ class App extends React.Component {
             <span className="loader__text">Loading...</span>
           </div>
         ) : (
-          <div className="movies">
+          <div>
             {movies.map(movie => (
               <MovieScheduleList
                 key={movie.id}
-                id={movie.id}
+                id={v4()}
                 year={movie.year}
                 title={movie.title}
                 summary={movie.summary}
                 poster={movie.medium_cover_image}
                 genres={movie.genres}
+                ticket = {10}
+                showTime = {["3PM", "8PM"]}
               />
             ))}
           </div>
