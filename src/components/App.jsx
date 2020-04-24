@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import NavBar from "./NavBar";
-import Movie from "./Movie";
-import Footer from "./Footer";
+import NavBar from "./components/NavBar";
+import Movie from "./components/Movie";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
 import axios from "axios";
 import './App.css';
 
