@@ -3,7 +3,7 @@ import {v4} from 'uuid';
 import MovieControl from './MovieControl';
 import { Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
-import MovieScheduleList from "./Movie";  
+import Main from "./Main";  
 import Footer from "./Footer";
 import axios from "axios";
 import './App.css';
@@ -36,19 +36,26 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <>
-      <Switch>
       {/* <div><NavBar /></div> */}
       <section className="container">
         {isLoading ? (
           <div className="loader">
             <span className="loader__text">Loading...</span>
           </div>
-        ) : (
+        ) : 
+        
+        (
+        <div>
+        <Switch>
+        <Route exact path='/' component={Main} />
         <Route exact path='/employee' render={(props) => <MovieControl { ...props} movies ={this.state.movies}  />}/>
+        </Switch>
+        </div>
         )}
+        
       </section>
       {/* <div><Footer /></div> */}
-      </Switch>
+      
       </>
     );
   }
