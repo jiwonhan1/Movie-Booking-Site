@@ -16,6 +16,14 @@ class MovieControl extends React.Component {
       currentTime : new Date().getHours()
     }
   }
+  render(){
+    console.log(this.state)
+    return(
+      <>
+      
+      </>
+    )
+  }
 }
 
 export default MovieControl;
