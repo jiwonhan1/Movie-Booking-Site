@@ -18,6 +18,7 @@ function NewMovie(props){
         <input type="textarea" name="summary" placeholder="Summary" class="form-control"/>
         <input type="number" name="ticket" placeholder="Ticket Quantities" class="form-control"/>
         <input type="text" name="showTime" placeholder="Show Time"/>
+        <button type="submit">Add new movie to system</button>
       </form>
     </>
   )

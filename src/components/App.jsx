@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {v4} from 'uuid';
 import MovieControl from './MovieControl';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from "./NavBar";
 import Main from "./Main";  
 import Footer from "./Footer";
@@ -44,12 +43,12 @@ class App extends React.Component {
         ) : 
         
         (
-        <BrowserRouter>
+        <Router>
           <Switch>
             <Route exact path='/' component={Main} />
             <Route exact path='/employee' render={(props) => <MovieControl {...props} movies ={this.state.movies} />}/>
           </Switch>
-        </BrowserRouter>
+        </Router>
         )}
         
       {/* <div><Footer /></div> */}

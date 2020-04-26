@@ -5,7 +5,7 @@ function NavBar(){
   return (
    
     <div class="nav">
-      <p className="navText">Movie Ticket Sysyem</p> 
+      <p className="navText">Movie Ticket System</p> 
     </div>
   );
 
