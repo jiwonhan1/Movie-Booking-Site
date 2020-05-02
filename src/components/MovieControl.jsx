@@ -18,7 +18,6 @@ class MovieControl extends React.Component {
              message : "Available"
            }
        }),
-       showTimes : ['3PM', '8PM'],
       formVisible: false,
       selectedMovie : null,
       selectedBooking : null,

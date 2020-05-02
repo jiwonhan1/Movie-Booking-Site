@@ -26,7 +26,7 @@ This is a movie ticket booking site with create/read/update/delete functionality
 6. A user is able to book or cancel the ticket in booking page.
 7. A user is able to update ticket status as per reservation or cancellation.
 8. When tickets are sold out(ticket quantities are equal to 0), the "Out of stock" message is shown.
-9. Ticket quantities are limited to 8, so system notifies a user that limited ticket quantities when canceling tickets and ticket numbers is 8.
+9. Ticket quantities are limited to 8, so system notifies a user that limited ticket quantities when canceling tickets and ticket numbers reach 8.
 10. A user is able to delete a movie in detail page and the movie is excluded in the movie list in main page.
 
 ### Future improvements
@@ -36,7 +36,7 @@ This is a movie ticket booking site with create/read/update/delete functionality
 ### Diagram
 
 1. 1st plan
-<img src="src/img/diagram.jpg" width="550px" />
+<img src="src/img/diagram.png" width="550px" />
 
 <!-- App has NavBar and BubbleTeaControl and Footer components comprehensively. BubbleTea control is a global component for BubbleTeaList, NewBubbleTeaForm and BubbleTeaDetail components. Those children components could connect via their parent control.  -->
 

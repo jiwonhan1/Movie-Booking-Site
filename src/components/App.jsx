@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
-import MovieControl from './MovieControl';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NavBar from "./NavBar";
-import Main from "./Main";  
-import Footer from "./Footer";
 import axios from "axios";
-import './App.css';
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +9,6 @@ class App extends React.Component {
       movies: [],
     }
   }
-
   getMovies = async () => {
     const {
       data: {
@@ -24,7 +17,10 @@ class App extends React.Component {
     } = await axios.get(
       "https://yts-proxy.now.sh/list_movies.json?limit=6&sort_by=rating"
     );
-    this.setState({ movies, isLoading: false });
+    this.setState({ movies : movies.map(movie => {return{...movie, ticket:8, seatTable : [
+      ['A1', 'A2', 'A3', 'A4'],
+      ['B1', 'B2', 'B3', 'B4'],
+    ], showTime: '3PM', bookedSeat: []}}), isLoading: false});
     console.log(this.setState)
   };
   componentDidMount() {
@@ -32,27 +28,17 @@ class App extends React.Component {
   }
   render() {
     const { isLoading, movies } = this.state;
-    console.log(this.state);
     return (
       <>
-      {/* <div><NavBar /></div> */}
         {isLoading ? (
           <div className="loader">
-            <span className="loader__text">Loading...</span>
+            <span className="loader__text">Welcome to Class theater!</span>
           </div>
         ) : 
-        
         (
-        <Router>
-          <Switch>
-            <Route exact path='/' component={Main} />
-            <Route exact path='/employee' render={(props) => <MovieControl {...props} movies ={this.state.movies} />}/>
-          </Switch>
-        </Router>
+        <div>{movies.map(movie => <li>{movie.title}</li>)}
+       </div>
         )}
-        
-      {/* <div><Footer /></div> */}
-      
       </>
     );
   }
