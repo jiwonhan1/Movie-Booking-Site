@@ -68,9 +68,6 @@ class MovieControl extends React.Component {
     
   }
 
-  // MovieDetailPage = () => {
-  //   this.setState({formVisible : false, selectedMovie : !null})
-  // }
 
   setVisibility  = () => {
     if(this.state.formVisible){
