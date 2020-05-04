@@ -14,7 +14,7 @@
 
 ## 1. User Flow
 
-This is a movie ticket booking site with create/read/update/delete functionality. There are main feature : **movie management** and **movie booking**. 
+This is a movie ticket booking site with create/read/update/delete functionality. There are two main features : **movie management** and **movie booking**. 
 
 1. A user is guided to the site at the first initial page.
 1. A user is able to navigate the site through nav bar.
