@@ -45,7 +45,15 @@ This is a movie ticket booking site with create/read/update/delete functionality
 
 ### Sreenshot
 
-<!-- <img src="src/img/bubbleTeaSite.gif" width="550px" /> -->
+<img src="src/img/intro.png" width="550px" />
+
+<img src="src/img/movies.gif" width="550px" />
+
+<img src="src/img/detail.gif" width="550px" />
+
+<img src="src/img/booking.gif" width="550px" />
+
+<img src="src/img/movieSite.gif" width="550px" />
 
 ### What's Included
 
@@ -97,8 +105,8 @@ This is a movie ticket booking site with create/read/update/delete functionality
 ### To run dev mode locally:
 
 ```bash
-  $ git clone https://github.com/jiwon-seattle/Movie-ticket-booking.git
-  $ cd movie-ticket
+  $ git clone https://github.com/jiwon-seattle/Movie-Booking-Site.git
+  $ cd the repository
   $ npm install  
   # After successfull pkg installtion
   $ npm start
