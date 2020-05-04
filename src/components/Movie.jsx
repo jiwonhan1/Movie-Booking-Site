@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import MovieInfo from './MovieInfo';
-import * as action from '../actions/actions';
+import { clickInfo } from '../actions/actions';
 import { connect } from 'react-redux';
 import './Movie.css';
 
@@ -31,32 +31,26 @@ class Movie extends Component {
   }
 }
 
-// Movie.prototype={
-//   id: PropTypes.string.isRequired,
-//   year: PropTypes.number.isRequired,
-//   title: PropTypes.string.isRequired,
-//   summary: PropTypes.string.isRequired,
-//   genres: PropTypes.string.isRequired,
-//   price: PropTypes.number.isRequired,
-//   ticket: PropTypes.number.isRequired,
-//   showTime: PropTypes.string.isRequired,
-//   message: PropTypes.string.isRequired,
-//   movieSelected: PropTypes.func,
-//   onBooking: PropTypes.func,
-// };
+Movie.propTypes = {
+  key: PropTypes.object,
+  id: PropTypes.object,
+  title: PropTypes.object,
+  poster: PropTypes.object,
+  clickInfo: PropTypes.object,
+  detailVisible: PropTypes.object,
+  selectedMovie: PropTypes.object,
+  clickInfo: PropTypes.func,
+}
 
 const mapStateToProps = (state, ownProps) => ({
   key: ownProps.key,
   id: ownProps.id,
   title: ownProps.title,
-  summary: ownProps.summary,
   poster: ownProps.poster,
   selectedMovie: state.selectedMovie,
 });
 
-const mapDispatchToProps = (dispatch)=> ({
-  clickInfo:(id) => dispatch(action.clickInfo(id))
-})
+const mapDispatchToProps = { clickInfo }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movie);
 

@@ -1,10 +1,7 @@
-<!-- npm install axios    
-npm install react-router-dom
-npm install bootstrap -->
 
-# Movie Ticket Booking :movie_camera:
+# Movie Ticket Booking site :movie_camera:
 
-#### A movie ticket booking site with full CRUD functionality 4.24.2020
+#### A movie ticket booking site with full CRUD functionality 5.3.2020
 
 #### By Jiwon Han**
 
@@ -13,21 +10,26 @@ npm install bootstrap -->
 ![Languages](https://img.shields.io/github/languages/top/jiwon-seattle/Movie-ticket-booking)
 [![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
 
+**This application was developed by react-redux.**
 
 ## 1. User Flow
 
-This is a movie ticket booking site with create/read/update/delete functionality. A desirable user would be a administrator or employee of movie theater.
+This is a movie ticket booking site with create/read/update/delete functionality. There are main feature : **movie management** and **movie booking**. 
 
-1. A user is able to receive movie data from movie API.
-2. A user is able to choose employee mode in the first web page.
-3. A user is able to create new movie in the system and that is added to a movie list.
-4. A user is able to see all movies list in the main page.
-5. A user is able to check each movie's detail in detail page.
-6. A user is able to book or cancel the ticket in booking page.
-7. A user is able to update ticket status as per reservation or cancellation.
-8. When tickets are sold out(ticket quantities are equal to 0), the "Out of stock" message is shown.
-9. Ticket quantities are limited to 8, so system notifies a user that limited ticket quantities when canceling tickets and ticket numbers reach 8.
-10. A user is able to delete a movie in detail page and the movie is excluded in the movie list in main page.
+1. A user is guided to the site at the first initial page.
+1. A user is able to navigate the site through nav bar.
+2. A user is able to see a movie list.
+3. A user clicks a specific movie and page turns to movie detail page.
+4. A user is able to see movie information in detailed.
+5. A user is able to delete the movie in the detail page.
+6. A user is able to update the movie clicked by `EDIT` in the movie detail page.
+7. A user is able to add a new movie clicked by  `Add Movie` at the nav bar.
+8. A new movie is created with timestamp.
+9. A user is able to navigate to Booking page.
+10. A user is able to choose a movie on the drop down menu to make a reservation.
+11. A movie screen and seat information comes up.
+12. A user is able to choose a seat and if seat is already booked, `Already booked` message is shown.
+13. After booking, a user is able to check ticket amounts decreased in the movie detail page. 
 
 ### Future improvements
 
@@ -35,23 +37,44 @@ This is a movie ticket booking site with create/read/update/delete functionality
 
 ### Diagram
 
-1. 1st plan
+1. 1st plan : before redux, react only
+
 <img src="src/img/diagram.png" width="550px" />
 
 <!-- App has NavBar and BubbleTeaControl and Footer components comprehensively. BubbleTea control is a global component for BubbleTeaList, NewBubbleTeaForm and BubbleTeaDetail components. Those children components could connect via their parent control.  -->
+
+2. react-redux plan
+
+<img src="src/img/ReduxDiagram.png" width="550px" />
 
 ### Sreenshot
 
 <!-- <img src="src/img/bubbleTeaSite.gif" width="550px" /> -->
 
+### What's Included
+
+```bash 
+|-- components :
+|   |-- TicTacToe.jsx
+|   |   |-- const initialState
+|   |   |-- action type modules (const SET_WINNER, const CLICK_CELL, const SET_TURN, const RESET)
+|   |   |-- const reducer
+|   |   |-- const [state, dispatch] = useReducer(reducer, initialState);
+|   |   |-- useEffect()
+|   |-- Table.jsx
+|   |-- Tr.jsx 
+|   |-- Td.jsx 
+```
+
 ## 2. Development
+
 ### Tech stack:
 + [NPM](https://www.npmjs.com/) for package management
-+ [react](https://reactjs.org/) as core stack
++ [react](https://reactjs.org/), [react-redux](https://react-redux.js.org/) as core stack
 + [Movie API](https://yts.mx/api)
 + [drawio](https://app.diagrams.net/) for diagram
 + [bootstrap](https://getbootstrap.com/)
-+ [favicon](https://www.favicon-generator.org/) for a bubble tea favicon
++ [favicon](https://www.favicon-generator.org/) 
 
 ### To run dev mode locally:
 ```bash
@@ -62,6 +85,9 @@ This is a movie ticket booking site with create/read/update/delete functionality
   $ npm start
 ```
 Now, it will automatically open http://localhost:3000 and show you movie ticket site.
+
+### Packages used
+
 
 ## 3. Known Bugs
 

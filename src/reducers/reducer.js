@@ -1,4 +1,5 @@
 import * as actions from '../actions/actions'; 
+import Moment from 'moment';
 
 const initialState = {
   movies : [],
@@ -7,7 +8,6 @@ const initialState = {
   selectedMovie: {},
   formVisible: false,
   editing: false,
-  booking : false,
   detailVisible: false,
   table: false,
 }
@@ -32,7 +32,7 @@ function reducer(state = initialState, action) {
             ['A1', 'A2', 'A3', 'A4'],
             ['B1', 'B2', 'B3', 'B4'],
           ], 
-        showTime: '3PM', bookedSeat: []}})
+        showTime: '3PM', bookedSeat: [], timeCreated: new Moment(), formattedWaitTime: new Moment().fromNow(true),}})
       };
 
       

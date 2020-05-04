@@ -20,20 +20,17 @@
 }
 
 .movieInfo {
-  border: 1px solid red;
   text-align: center;
   height: 950px;
   margin-top: 20px;
 }
 
 .summary{
-  border: 1px solid yellow;
   width: 500px;
   margin-left: 510px;
 }
 
 .addMovie {
-  border: 1px solid yellow;
   margin-top: 100px;
   text-align: center;
   display: flex;

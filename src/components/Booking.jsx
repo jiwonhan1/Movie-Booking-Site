@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import './Booking.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import './Booking.css';
 import { selectMovie, clickBook } from '../actions/actions'
-import { Form, Popup } from "semantic-ui-react";
-import { Link } from 'react-router-dom';
+
 
 class Booking extends Component {
 
@@ -29,8 +28,7 @@ class Booking extends Component {
     }
     else 
     {
-      // this.state.selectedSeat = !null;
-      // selectedSeat
+      //addClass (css effect)
     }
   }
 
@@ -54,7 +52,7 @@ class Booking extends Component {
   }
 
   setPages  = () => {
-    const { selectedMovie, table} = this.props;
+    const { selectedMovie, table } = this.props;
     
     if(table === true)
     {
@@ -88,8 +86,6 @@ class Booking extends Component {
           </div>
         </React.Fragment>       
       )
-        
-  
     }
     else {
       return console.log(selectedMovie); 
@@ -98,14 +94,13 @@ class Booking extends Component {
 
   render() {
     const {movies} = this.props;
-
     let currentPage = this.setPages();
     console.log(this.props);
     return(
       <React.Fragment>
       <div className="selectMovie">
         <form onSubmit={this.handleSubmit}>
-        <select className="form-control" id="selectedForBook"  defaultValue={movies.id} name="id" onChange={this.handleChange}>{movies.map((title, index) => (<option value={title.id}>{title.title}</option>))}
+        <select className="form-control" id="selectedForBook"  defaultValue={movies.id} name="id" onChange={this.handleChange}>{movies.map((title) => (<option value={title.id}>{title.title}</option>))}
         </select>
         <Button color="secondary" type="submit">See the seats</Button>
         </form>
@@ -116,7 +111,15 @@ class Booking extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ movies: state.movies, detailVisible: state.detailVisible, selectedMovie: state.selectedMovie, table: state.table});  
+Booking.propTypes = {
+  movies: PropTypes.object,
+  selectedMovie: PropTypes.object,
+  table: PropTypes.object,
+  selectMovie: PropTypes.func,
+  clickBook: PropTypes.func,
+}
+
+const mapStateToProps = (state) => ({ movies: state.movies, selectedMovie: state.selectedMovie, table: state.table});  
 
 const mapDispatchToProps = { selectMovie, clickBook };
 

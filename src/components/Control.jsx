@@ -1,15 +1,15 @@
 import React, {Component}from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import MovieAdd from './MovieAdd';
 import MovieList from './MovieList';
 import MovieInfo from './MovieInfo';
 import MovieEdit from './MovieEdit';
-import Booking from './Booking';
 
 class Control extends Component {
 
     setVisibility  = () => {
-      const { detailVisible, selectedMovie, booking ,editing, movies} = this.props;
+      const { detailVisible, selectedMovie, editing} = this.props;
       if(selectedMovie === null && detailVisible === false){
         return <MovieAdd/>
       }
@@ -34,6 +34,13 @@ class Control extends Component {
       </>
     )
   }
+}
+
+Control.propTypes = {
+  movies: PropTypes.object,
+  detailVisible: PropTypes.object,
+  selectedMovie: PropTypes.object,
+  editing: PropTypes.object
 }
 
 const mapStateToProps = (state) => ({ 

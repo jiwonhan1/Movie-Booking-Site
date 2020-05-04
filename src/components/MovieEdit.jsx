@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { editMovie } from '../actions/actions';
 
 class MovieEdit extends Component {
@@ -9,7 +10,7 @@ class MovieEdit extends Component {
   }
 
   handleSubmit = (e) => {
-    const { editMovie, detailVisible, selectedMovie } = this.props;
+    const { editMovie, selectedMovie } = this.props;
     e.preventDefault();
     const title = this.state.title;
     const id = this.state.id;
@@ -23,7 +24,7 @@ class MovieEdit extends Component {
       <>
       <div>
         <h1>Edit {movie.title}</h1>
-        <form style={{border: "1px solid yellow"}} onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
         <div className="form-group">
             <lable>Id</lable>
             <input type="text" name="Id" defaultValue={this.props.movie.id} onChange={this.handleChange} className="form-control" />
@@ -45,6 +46,11 @@ class MovieEdit extends Component {
       </>
     )
   }
+}
+
+MovieEdit.propTypes = {
+  selectedMovie: PropTypes.object,
+  editMovie: PropTypes.func,
 }
 
 const mapStateToProps = (state) => ({ selectedMovie: state.selectedMovie});

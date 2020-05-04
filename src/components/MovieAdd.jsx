@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { addMovie } from '../actions/actions';
 import {v4} from 'uuid';
+import PropTypes from 'prop-types';
 import {Form} from 'react-bootstrap';
 import Moment from 'moment';
 import Button from '@material-ui/core/Button';
@@ -45,6 +46,12 @@ class MovieAdd extends Component {
   }
 }
 
+MovieAdd.propTypes = {
+  selectedMovie: PropTypes.object,
+  addMovie: PropTypes.func,
+}
+
 const mapStateToProps = (state) => ({ selectedMovie: state.selectedMovie});
 const mapDispatchToProps = { addMovie };
+
 export default connect (mapStateToProps, mapDispatchToProps)(MovieAdd);

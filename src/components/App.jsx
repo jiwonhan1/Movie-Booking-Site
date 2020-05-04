@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+import './App.css';
+import PropTypes from 'prop-types';
 import { Router, Route, NavLink, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
+import Intro from "./Intro";
 import Control from "./Control";
 import Footer from "./Footer";
 import MovieAdd from "./MovieAdd";
 import Booking from "./Booking";
 import history from '../history';
-import './App.css';
 import { fetchMovies } from "../actions/fetchData";
 
 class App extends Component {
@@ -21,7 +23,7 @@ class App extends Component {
       return <div>Error!</div>
     }
     if(loading){
-      return <div className="initialPage">Welcome to Classic Theater!</div>
+      return <div className="initialPage">Classic Tiny Theater!</div>
     }
     return (
       <Router history ={history}>
@@ -47,12 +49,19 @@ const Nav = () => (
 
 const Main = () => (
   <Switch>
-    <Route exact path='/' component={Control}/>
+    <Route exact path='/' component={Intro}/>
     <Route exact path='/movies' component={Control}/>
     <Route exact path='/movies/new' component={MovieAdd}/>
     <Route exact path='/movies/book' component={Booking}/>
   </Switch>
 )
+
+App.propTypes = {
+  movies: PropTypes.object,
+  loading: PropTypes.object,
+  error: PropTypes.object,
+  fetchMovies: PropTypes.func,
+}
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
@@ -61,4 +70,5 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = { fetchMovies };
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import * as action from '../actions/actions';
 import './Movie.css';
+import { connect } from 'react-redux';
+import { deleteMovie, getEditForm } from '../actions/actions';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 class MovieInfo extends Component {
   render(){
     const { movie } = this.props;
-    const { deleteMovie, getEditForm, detailVisible } = this.props;
-    console.log(movie);
+    const { deleteMovie, getEditForm } = this.props;
     return(
       <React.Fragment>
         <div className="movieInfo">
@@ -29,16 +28,14 @@ class MovieInfo extends Component {
 
 MovieInfo.propTypes = {
   movie: PropTypes.object,
+  selectedMovie: PropTypes.object,
   deleteMovie: PropTypes.func,
   getEditForm: PropTypes.func,
 }
 
-const mapStateToProps = (state, ownProps) => ({ selectedMovie : ownProps.selectedMovie, editing: state.editing, detailVisible: state.detailVisible})
+const mapStateToProps = (state, ownProps) => ({ selectedMovie : ownProps.selectedMovie, editing: state.editing, detailVisible: state.detailVisible});
 
-const mapDispatchToProps = (dispatch)=> ({
-  deleteMovie:(id) => dispatch(action.deleteMovie(id)),
-  getEditForm:(id) => dispatch(action.getEditForm(id))
-})
+const mapDispatchToProps = {deleteMovie, getEditForm};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieInfo);
 
