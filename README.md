@@ -10,7 +10,7 @@
 ![Languages](https://img.shields.io/github/languages/top/jiwon-seattle/Movie-ticket-booking)
 [![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
 
-**This application was developed by react-redux.**
+**This application was developed by react-redux**
 
 ## 1. User Flow
 
