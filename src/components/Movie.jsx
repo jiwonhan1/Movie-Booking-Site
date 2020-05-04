@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MovieInfo from './MovieInfo';
 import * as action from '../actions/actions';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import './Movie.css';
 
 class Movie extends Component {
   handleDetailRequest = (id)=> {
@@ -19,37 +19,17 @@ class Movie extends Component {
  
   }
   render(){
-  const { id, title, summary, poster } = this.props;
+  const { id, title, poster } = this.props;
     return (
-      <div onClick={()=> this.handleDetailRequest(id)}>
-        <img src={poster} alt={title} title={title}/>
-        <p>{title}</p>
-        <hr/>
-      </div>
-      
+      <React.Fragment>
+        <div className="movies" onClick={()=> this.handleDetailRequest(id)}>
+          <img src={poster} alt={title} title={title}/>
+          <p>{title}</p>
+        </div>
+      </React.Fragment>
     )
   }
 }
-
-// 
-// function Movie(props) {
-//   return (
-//     <>
-//       <img src={props.poster} alt={props.title} title={props.title} />
-//       <p>id : {props.id}</p>
-//       <p>year : {props.year}</p>
-//       <p>title : {props.title}</p>
-//       <p>summary : {props.summary}</p>
-//       <p>genres : {props.genres}</p>
-//       <p>Ticket Price : {props.price}</p>
-//       <p>Ticket Quantities: {props.ticket}</p>
-//       <p>Show Time : {props.showTime}</p>
-//       <p>Current Ticket Status : {props.message}</p>
-//       <button onClick= {() => props.movieSelectedBooking(props.id)}>Book</button>
-//       <button onClick= {() => props.movieSelected(props.id)}>Details</button>
-//     </>
-//   )
-// }
 
 // Movie.prototype={
 //   id: PropTypes.string.isRequired,

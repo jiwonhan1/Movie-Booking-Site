@@ -1,0 +1,42 @@
+.movieListheader{
+  width: 100%;
+  height:80px;
+  text-align: center;
+  font-size: 50px;
+  color: red;
+}
+
+.movieList {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill,minmax(420px, 1fr));
+  text-align: center;
+  height: 1000px;
+}
+
+.movies {
+  height: 300px;
+  font-size: 20px;
+}
+
+.movieInfo {
+  border: 1px solid red;
+  text-align: center;
+  height: 950px;
+  margin-top: 20px;
+}
+
+.summary{
+  border: 1px solid yellow;
+  width: 500px;
+  margin-left: 510px;
+}
+
+.addMovie {
+  border: 1px solid yellow;
+  margin-top: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

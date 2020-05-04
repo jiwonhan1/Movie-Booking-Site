@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Movie from './Movie';
+import './Movie.css';
 
 class MovieList extends Component {
   
@@ -10,8 +11,9 @@ class MovieList extends Component {
     console.log(this.props)                                                  
     if(this.props.movies.length) {                                
       return (
-        <div>
-          <h4>Movies</h4>
+      <React.Fragment>
+        <div className="movieListheader">Movies</div>
+        <div className="movieList">
           {this.props.movies.map(movie => 
           <Movie 
           key={movie.id}
@@ -23,6 +25,7 @@ class MovieList extends Component {
           detailVisible={this.props.detailVisible}/>
           )}
         </div>
+      </React.Fragment>
       )    
     } else {
       return (<div>No Movies</div>)
@@ -30,10 +33,11 @@ class MovieList extends Component {
   }
 }
 
+MovieList.propTypes = {
+  movies: PropTypes.object,
+}
+
 const mapStateToProps = (state) => ({ movies: state.movies, detailVisible: state.detailVisible, editing: state.editing, selectedMovie: state.selectedMovie });  
 
 export default connect(mapStateToProps)(MovieList);               
 
-MovieList.propTypes = {
-  movies: PropTypes.object,
-}

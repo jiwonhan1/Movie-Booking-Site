@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import './Booking.css';
 import { selectMovie, clickBook } from '../actions/actions'
 import { Form, Popup } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
@@ -52,30 +54,39 @@ class Booking extends Component {
   }
 
   setPages  = () => {
-    const { selectedMovie, movies, table} = this.props;
+    const { selectedMovie, table} = this.props;
     
     if(table === true)
     {
       console.log(selectedMovie);
       return (
-        <form onSubmit={this.handleBook}>
-          <table>
-            <tbody>
-              {
-                  selectedMovie.seatTable.map((seatList,i) =>(
-                    <tr key={i} rowIndex={i}>
-                      {
-                        seatList.map((seat,j)=>
-                          <td key={j} columnIndex={i} value={seat} onClick={this.handleClick}>{seat}</td>
-                        )
+        <React.Fragment>
+          <div class="screenTableWrapper">
+            <div class="screen">
+              <p>Screen</p>
+            </div>
+            <div className="table">
+              <form onSubmit={this.handleBook}>
+                <table class="table table-dark">
+                  <tbody>
+                    {
+                        selectedMovie.seatTable.map((seatList,i) =>(
+                          <tr key={i} rowIndex={i}>
+                            {
+                              seatList.map((seat,j)=>
+                                <td key={j} columnIndex={i} value={seat} onClick={this.handleClick}>{seat}</td>
+                              )
+                            }
+                          </tr>
+                        ))
                       }
-                    </tr>
-                  ))
-                }
-            </tbody>
-          </table>
-          <button type="submit">Book</button>
-        </form>        
+                  </tbody>
+                </table>
+                <Button color="secondary" className='booking-btn' type="submit">Book</Button>
+              </form>
+            </div>
+          </div>
+        </React.Fragment>       
       )
         
   
@@ -86,49 +97,22 @@ class Booking extends Component {
   }
 
   render() {
-    const {movies, clickSeat, clickBook, table} = this.props;
+    const {movies} = this.props;
 
     let currentPage = this.setPages();
     console.log(this.props);
     return(
-      <>
-      <div>
+      <React.Fragment>
+      <div className="selectMovie">
         <form onSubmit={this.handleSubmit}>
-        <select className="form-control" id="selectedForBook"  placeholder={movies.id} name="id" onChange={this.handleChange}>{movies.map((title, index) => (<option value={title.id}>{title.title}</option>))}
+        <select className="form-control" id="selectedForBook"  defaultValue={movies.id} name="id" onChange={this.handleChange}>{movies.map((title, index) => (<option value={title.id}>{title.title}</option>))}
         </select>
-        <button type="submit">See the seats</button>
+        <Button color="secondary" type="submit">See the seats</Button>
         </form>
-        
-
       </div>
       {currentPage}
-      </>
-    )
-    
-    // return(
-    //   <>
-        // <form>
-        //   <table>
-        //     <tbody>
-        //       {
-        //           movies.seatTable.map((seatList,i) =>(
-        //             <tr key={i} rowIndex={i}>
-        //               {
-        //                 seatList.map((seat,j)=>
-        //                   <td key={j} columnIndex={i} value={seat} onClick={clickSeat}>{seat}</td>
-        //                 )
-        //               }
-        //             </tr>
-        //           ))
-        //         }
-        //     </tbody>
-        //   </table>
-        //   <button onClick={clickBook}>Book</button>
-        // </form>        
-    //   </>
-    // )     
-
-
+      </React.Fragment>
+    )   
   }
 }
 

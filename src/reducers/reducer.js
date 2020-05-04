@@ -48,7 +48,13 @@ function reducer(state = initialState, action) {
       let newMovie = action.movie;
       return {
         ...state,
-        movies: movies.concat({...newMovie}),
+        movies: movies.concat({...newMovie, ticket: 8, 
+          seatTable :
+            [
+              ['A1', 'A2', 'A3', 'A4'],
+              ['B1', 'B2', 'B3', 'B4'],
+            ], 
+          showTime: '3PM', bookedSeat: []}),
         detailVisible: false,
         editing: false,
       }
@@ -97,14 +103,14 @@ function reducer(state = initialState, action) {
           selectedMovie: movies.find(movie => movie.id === action.id),
           table: true,
         }  
-
       case actions.BOOK:
         let seat = action.seat;
         console.log(seat)
-        selectedMovie.bookedSeat.push(seat)
+        selectedMovie.ticket > 0 ? selectedMovie.ticket -- && selectedMovie.bookedSeat.push(seat) : selectedMovie.ticket = 0;
+        let newLIst = movies.filter(movie => movie.id !== selectedMovie.id).concat(selectedMovie)
         return {
          ...state,
-         selectedMovie
+         movies: newLIst,
         } 
     default:
       return state;

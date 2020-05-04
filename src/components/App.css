@@ -1,0 +1,21 @@
+.initialPage{
+  color: red;
+  border: 1px solid yellow;
+  margin-top: 250px;
+  text-align: center;
+  font-size: 100px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+}
+
+.footer a {
+  text-decoration: none;
+  color:white;
+}

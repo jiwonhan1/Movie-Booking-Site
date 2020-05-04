@@ -2,26 +2,16 @@ import React, {Component} from 'react';
 import { Router, Route, NavLink, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import Control from "./Control";
-import MovieList from "./MovieList";
+import Footer from "./Footer";
 import MovieAdd from "./MovieAdd";
-import MovieEdit from "./MovieEdit";
-import MovieInfo from "./MovieInfo";
 import Booking from "./Booking";
 import history from '../history';
-
-
-// function Main(){
-//   return (
-//     <div className="d-flex flex-row justify-content-center">
-//       <Link to="/employee" className="btn btn-dark btn-custom">Employee</Link>
-//     </div>
-//   );
-// }
+import './App.css';
 import { fetchMovies } from "../actions/fetchData";
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchMovies());
+    this.props.fetchMovies();
   }
 
   render() {
@@ -31,14 +21,15 @@ class App extends Component {
       return <div>Error!</div>
     }
     if(loading){
-      return <div>Welcome to Classic Theater!</div>
+      return <div className="initialPage">Welcome to Classic Theater!</div>
     }
     return (
       <Router history ={history}>
         <div>
           <Nav/>
           <Main/>
-        </div>
+          <Footer/>
+          </div>
       </Router>
     );
   }
@@ -46,7 +37,7 @@ class App extends Component {
 
 const Nav = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    <ul className="navbar-nav mr-auto">
+    <ul className="navbar-nav">
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/movies">Movies</NavLink></li>
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/movies/new">Add Movie</NavLink></li>
       <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/movies/book">Booking</NavLink></li>
@@ -59,7 +50,6 @@ const Main = () => (
     <Route exact path='/' component={Control}/>
     <Route exact path='/movies' component={Control}/>
     <Route exact path='/movies/new' component={MovieAdd}/>
-    {/* <Route exact path='/movies/:id' component={MovieInfo}/> */}
     <Route exact path='/movies/book' component={Booking}/>
   </Switch>
 )
@@ -70,4 +60,5 @@ const mapStateToProps = (state) => ({
   error: state.error
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = { fetchMovies };
+export default connect(mapStateToProps, mapDispatchToProps)(App);

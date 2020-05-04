@@ -1,0 +1,27 @@
+.selectMovie{
+  margin-top: 50px;
+  border: 1px solid red
+}
+
+.screen{
+  border: 1px solid white;
+  width: 500px;
+  height: 150px;
+  text-align: center;
+  background-color: #696969;
+  margin-left: 500px;
+  padding: 60px;
+}
+
+.table{
+  border: 1px solid yellow;
+}
+
+.screenTableWrapper{
+  border: 1px solid pink;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400px;
+}
