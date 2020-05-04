@@ -45,7 +45,7 @@ This is a movie ticket booking site with create/read/update/delete functionality
 
 ### Sreenshot
 
-<img src="src/img/intro.png" width="550px" />
+<img src="src/img/intro.png" width="700px" />
 
 <img src="src/img/movies.png" width="700px" />
 
