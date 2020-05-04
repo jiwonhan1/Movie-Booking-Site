@@ -47,13 +47,13 @@ This is a movie ticket booking site with create/read/update/delete functionality
 
 <img src="src/img/intro.png" width="550px" />
 
-<img src="src/img/movies.gif" width="550px" />
+<img src="src/img/movies.png" width="700px" />
 
-<img src="src/img/detail.gif" width="550px" />
+<img src="src/img/detail.png" width="700px" />
 
-<img src="src/img/booking.gif" width="550px" />
+<img src="src/img/booking.png" width="700px" />
 
-<img src="src/img/movieSite.gif" width="550px" />
+<img src="src/img/movieSite.gif" width="700px" />
 
 ### What's Included
 
