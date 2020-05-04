@@ -111,9 +111,9 @@ This is a movie ticket booking site with create/read/update/delete functionality
   # After successfull pkg installtion
   $ npm start
 ```
-Now, it will automatically open http://localhost:3000 and show you movie ticket site.
+Now, it will automatically open http://localhost:3000 and show you movie ticket site
 
-_If you encouter with initial npm packages issues, please delete `package-lock.json` file in the directory._
+_If you encouter with initial npm packages issues, please delete `package-lock.json` file in the directory_
 
 ### Packages used
 
