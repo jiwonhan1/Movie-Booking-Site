@@ -1,7 +1,7 @@
 
 # Movie Ticket Booking site :movie_camera:
 
-#### A movie ticket booking site with full CRUD functionality 5.3.2020
+#### A movie data management and booking site with full CRUD functionality 5.3.2020
 
 #### By Jiwon Han**
 
@@ -30,10 +30,6 @@ This is a movie ticket booking site with create/read/update/delete functionality
 11. A movie screen and seat information comes up.
 12. A user is able to choose a seat and if seat is already booked, `Already booked` message is shown.
 13. After booking, a user is able to check ticket amounts decreased in the movie detail page. 
-
-### Future improvements
-
-1. Database such as firebase
 
 ### Diagram
 
@@ -78,11 +74,19 @@ This is a movie ticket booking site with create/read/update/delete functionality
 |-- reducers :
 |   |   |-- reducer.js
 |-- history.jsx
+|-- index.jsx
 ```
+**All components were descripted with propTypes**
+
+### Future improvements
+
+1. Database such as firebase
+2. Server
 
 ## 2. Development
 
 ### Tech stack:
+
 + [NPM](https://www.npmjs.com/) for package management
 + [react](https://reactjs.org/), [react-redux](https://react-redux.js.org/) as core stack
 + [Movie API](https://yts.mx/api)
@@ -91,6 +95,7 @@ This is a movie ticket booking site with create/read/update/delete functionality
 + [favicon](https://www.favicon-generator.org/) 
 
 ### To run dev mode locally:
+
 ```bash
   $ git clone https://github.com/jiwon-seattle/Movie-ticket-booking.git
   $ cd movie-ticket
@@ -99,6 +104,8 @@ This is a movie ticket booking site with create/read/update/delete functionality
   $ npm start
 ```
 Now, it will automatically open http://localhost:3000 and show you movie ticket site.
+
+_If you encouter with initial npm packages issues, please delete `package-lock.json` file in the directory._
 
 ### Packages used
 
