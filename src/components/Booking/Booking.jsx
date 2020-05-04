@@ -3,7 +3,7 @@ import './Booking.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { selectMovie, clickBook } from '../actions/actions'
+import { selectMovie, clickBook } from '../../actions/actions'
 
 
 class Booking extends Component {

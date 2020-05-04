@@ -54,16 +54,30 @@ This is a movie ticket booking site with create/read/update/delete functionality
 ### What's Included
 
 ```bash 
+|-- _tests_ :
+|-- actions :
+|   |-- actions.jsx
+|   |-- fetchData.jsx
 |-- components :
-|   |-- TicTacToe.jsx
-|   |   |-- const initialState
-|   |   |-- action type modules (const SET_WINNER, const CLICK_CELL, const SET_TURN, const RESET)
-|   |   |-- const reducer
-|   |   |-- const [state, dispatch] = useReducer(reducer, initialState);
-|   |   |-- useEffect()
-|   |-- Table.jsx
-|   |-- Tr.jsx 
-|   |-- Td.jsx 
+|   |-- App.jsx
+|   |   |-- Nav/Main/Footer
+|   |-- App.css
+|   |-- Footer.jsx
+|   |-- Intro.jsx
+|   |-- Booking
+|   |   |-- Booking.jsx
+|   |   |-- Booking.css
+|   |-- Movie
+|   |   |-- Control.jsx
+|   |   |-- Movie.jsx
+|   |   |-- MovieAdd.jsx
+|   |   |-- MovieEdit.jsx
+|   |   |-- MovieInfo.jsx
+|   |   |-- MovieList.jsx
+|   |   |-- Movie.css
+|-- reducers :
+|   |   |-- reducer.js
+|-- history.jsx
 ```
 
 ## 2. Development
@@ -88,6 +102,7 @@ Now, it will automatically open http://localhost:3000 and show you movie ticket 
 
 ### Packages used
 
+`react` `react-redux` `react-bootstrap` `react-dom` `react-router-dom` `react-scripts` `redux` `axios`
 
 ## 3. Known Bugs
 

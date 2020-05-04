@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addMovie } from '../actions/actions';
+import { addMovie } from '../../actions/actions';
 import {v4} from 'uuid';
 import PropTypes from 'prop-types';
 import {Form} from 'react-bootstrap';

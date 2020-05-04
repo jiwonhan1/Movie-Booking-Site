@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Movie.css';
 import { connect } from 'react-redux';
-import { deleteMovie, getEditForm } from '../actions/actions';
+import { deleteMovie, getEditForm } from '../../actions/actions';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 

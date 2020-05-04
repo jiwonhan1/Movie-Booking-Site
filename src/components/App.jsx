@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Router, Route, NavLink, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import Intro from "./Intro";
-import Control from "./Control";
+import Control from "./Movie/Control";
 import Footer from "./Footer";
-import MovieAdd from "./MovieAdd";
-import Booking from "./Booking";
+import MovieAdd from "./Movie/MovieAdd";
+import Booking from "./Booking/Booking";
 import history from '../history';
 import { fetchMovies } from "../actions/fetchData";
 
@@ -18,7 +18,7 @@ class App extends Component {
 
   render() {
     console.log(this.props.movies);
-    const { error, loading, movies} = this.props;
+    const { error, loading} = this.props;
     if (error){
       return <div>Error!</div>
     }

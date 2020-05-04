@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { editMovie } from '../actions/actions';
+import { editMovie } from '../../actions/actions';
 
 class MovieEdit extends Component {
   

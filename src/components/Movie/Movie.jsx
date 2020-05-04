@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import MovieInfo from './MovieInfo';
-import { clickInfo } from '../actions/actions';
+import { clickInfo } from '../../actions/actions';
 import { connect } from 'react-redux';
 import './Movie.css';
 
